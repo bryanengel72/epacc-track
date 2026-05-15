@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EPACC Track & Field Suite — interactive compliance and operations tools for NCAA and NAIA Track & Field and Cross Country programs.">
+<title>EPACC | Track &amp; Field Compliance &amp; Operations Suite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2240; --navy-2:#08182E; --navy-3:#04101F;
+  --gold:#C9A24C; --gold-soft:#E6D29A; --gold-bright:#F5D27A;
+  --bg:#F4F6FA; --card:#FFFFFF; --border:#D8DEE8;
+  --text:#1A2333; --muted:#5C6779;
+  --green:#2F7D5C; --amber:#D98E2B; --red:#B23A48;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+
+/* ===== HERO ===== */
+header.hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 15% -10%, rgba(201,162,76,0.25) 0%, transparent 50%),
+    radial-gradient(circle at 90% 15%, rgba(201,162,76,0.10) 0%, transparent 50%),
+    linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, var(--navy-3) 100%);
+  color:#fff;
+  padding:64px 28px 80px;
+  border-bottom:4px solid var(--gold);
+  overflow:hidden;
+}
+header.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0.5;
+  background-image:linear-gradient(transparent 95%, rgba(255,255,255,0.04) 95%),linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.04) 95%);
+  background-size:42px 42px;
+}
+.container{max-width:1180px;margin:0 auto;position:relative}
+.brand-row{display:flex;align-items:center;gap:14px;margin-bottom:32px}
+.brand-mark{
+  width:52px;height:52px;border-radius:11px;
+  background:linear-gradient(135deg,var(--gold) 0%, var(--gold-bright) 100%);
+  color:var(--navy);display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:20px;letter-spacing:0.5px;
+  box-shadow:0 10px 24px rgba(201,162,76,0.4);
+}
+.brand-name{font-weight:700;letter-spacing:1.6px;font-size:13px;color:var(--gold-soft)}
+.brand-sub{font-size:11px;opacity:0.78;letter-spacing:0.9px;text-transform:uppercase}
+.eyebrow{
+  display:inline-block;padding:6px 16px;background:rgba(201,162,76,0.12);
+  border:1px solid var(--gold);border-radius:999px;color:var(--gold-soft);
+  font-size:11px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:22px;
+}
+h1.title{
+  margin:0 0 16px;font-family:'Playfair Display',Georgia,serif;font-weight:800;
+  font-size:54px;line-height:1.05;max-width:900px;letter-spacing:-0.8px;
+}
+.title .accent{color:var(--gold-bright)}
+.lede{max-width:740px;font-size:18px;opacity:0.92;margin-bottom:36px;line-height:1.6}
+
+.hero-bar{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:920px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,76,0.25);
+  border-radius:14px;padding:20px 24px;backdrop-filter:blur(8px);
+}
+.hb .v{font-family:'Playfair Display',serif;font-weight:800;font-size:30px;color:var(--gold-bright);line-height:1}
+.hb .l{font-size:11px;letter-spacing:0.9px;text-transform:uppercase;opacity:0.7;margin-top:6px}
+@media (max-width:760px){
+  h1.title{font-size:38px}
+  .lede{font-size:16px}
+  .hero-bar{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ===== MAIN ===== */
+main{padding:60px 28px 80px}
+.section-label{font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h2.section-h{font-family:'Playfair Display',serif;font-size:34px;margin:0 0 14px;color:var(--navy);font-weight:800;letter-spacing:-0.4px}
+.section-desc{color:var(--muted);font-size:16px;max-width:780px;margin:0 0 36px}
+
+/* ===== TOOL CARDS ===== */
+.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px}
+@media (max-width:880px){.tools{grid-template-columns:1fr}}
+
+.tool-card{
+  position:relative;background:#fff;border:1px solid var(--border);
+  border-radius:16px;padding:32px;box-shadow:0 4px 18px rgba(11,34,64,0.06);
+  transition:transform .2s ease, box-shadow .2s ease;
+  display:flex;flex-direction:column;
+  text-decoration:none;color:inherit;
+  overflow:hidden;
+}
+.tool-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--gold) 0%, var(--gold-bright) 100%);
+}
+.tool-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,34,64,0.14)}
+.tool-card .badge{
+  display:inline-block;font-size:10.5px;letter-spacing:0.7px;text-transform:uppercase;
+  font-weight:700;padding:5px 10px;border-radius:999px;margin-bottom:18px;
+}
+.badge.diagnostic{background:rgba(11,34,64,0.08);color:var(--navy)}
+.badge.operations{background:rgba(201,162,76,0.18);color:#7B6212}
+
+.tool-card h3{
+  font-family:'Playfair Display',serif;font-size:24px;font-weight:800;
+  color:var(--navy);margin:0 0 10px;letter-spacing:-0.2px;line-height:1.2;
+}
+.tool-card p{color:var(--muted);font-size:14.5px;margin:0 0 18px;flex:1}
+
+.tool-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tool-meta span{
+  font-size:11px;background:var(--bg);color:var(--muted);padding:5px 10px;
+  border-radius:999px;letter-spacing:0.4px;border:1px solid var(--border);
+}
+
+.tool-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);
+  color:var(--gold-bright);font-weight:700;font-size:13.5px;
+  padding:12px 18px;border-radius:8px;letter-spacing:0.4px;
+  align-self:flex-start;transition:all .15s ease;
+}
+.tool-card:hover .tool-cta{background:linear-gradient(135deg,var(--gold) 0%, var(--gold-bright) 100%);color:var(--navy)}
+.tool-cta .arrow{transition:transform .15s ease}
+.tool-card:hover .tool-cta .arrow{transform:translateX(3px)}
+
+/* ===== FRAMEWORK STRIP ===== */
+.framework{
+  background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);
+  color:#fff;border-radius:16px;padding:40px;margin-bottom:48px;position:relative;overflow:hidden;
+}
+.framework::before{
+  content:"";position:absolute;inset:0;opacity:0.06;
+  background-image:radial-gradient(circle at 80% 50%, var(--gold) 0%, transparent 50%);
+}
+.framework-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;position:relative;z-index:1}
+@media (max-width:760px){.framework-grid{grid-template-columns:1fr}}
+.fw-item .num{
+  font-family:'Playfair Display',serif;font-weight:800;font-size:34px;
+  color:var(--gold-bright);line-height:1;margin-bottom:10px;
+}
+.fw-item h4{margin:0 0 8px;font-size:15px;color:#fff}
+.fw-item p{margin:0;font-size:13.5px;opacity:0.82;line-height:1.55}
+.framework .heading{margin-bottom:28px}
+.framework .heading .section-label{color:var(--gold-bright)}
+.framework .heading h3{font-family:'Playfair Display',serif;font-size:26px;color:#fff;margin:0;font-weight:800;letter-spacing:-0.3px}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start}
+@media (max-width:880px){.about-grid{grid-template-columns:1fr}}
+.about-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:32px;box-shadow:0 4px 14px rgba(11,34,64,0.04)}
+.about-card h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);margin:0 0 12px;font-weight:800}
+.about-card p{font-size:14.5px;color:var(--text);margin:0 0 12px;line-height:1.65}
+.contact-card{
+  background:linear-gradient(135deg,#fff 0%, #F8F6EE 100%);
+  border:1px solid var(--gold-soft);border-radius:14px;padding:28px;
+}
+.contact-card h4{margin:0 0 14px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.contact-card .name{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:800;margin-bottom:4px}
+.contact-card .role{color:var(--muted);font-size:13px;margin-bottom:18px}
+.contact-card a{display:block;color:var(--navy);text-decoration:none;font-size:13.5px;margin-bottom:8px;font-weight:600}
+.contact-card a:hover{color:var(--gold)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy-3);color:#B7C2D6;padding:36px 24px;text-align:center;font-size:13px;border-top:3px solid var(--gold)}
+footer .container{padding:0}
+footer .ft-brand{font-weight:700;color:var(--gold-soft);letter-spacing:1.2px;font-size:12px;margin-bottom:10px}
+footer p{margin:6px 0;font-size:12.5px;opacity:0.85}
+footer a{color:var(--gold-soft);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="container">
+    <div class="brand-row">
+      <div class="brand-mark">EP</div>
+      <div>
+        <div class="brand-name">E-PERFORMANCE COMPLIANCE &amp; CONSULTING GROUP</div>
+        <div class="brand-sub">Research-Backed Athletic Compliance Intelligence</div>
+      </div>
+    </div>
+    <span class="eyebrow">Track &amp; Field Suite · v1.0</span>
+    <h1 class="title">Compliance &amp; operations tools for the <span class="accent">Track &amp; Field</span> program.</h1>
+    <p class="lede">Two interactive instruments — an eligibility &amp; compliance readiness diagnostic and a full operations financial &amp; compliance audit tool — designed for Track &amp; Field and Cross Country programs across NCAA and NAIA divisions. Built on the same research-backed framework EPACC uses with institutional clients.</p>
+    <div class="hero-bar">
+      <div class="hb"><div class="v">2</div><div class="l">Interactive Tools</div></div>
+      <div class="hb"><div class="v">13</div><div class="l">Compliance Domains</div></div>
+      <div class="hb"><div class="v">NCAA + NAIA</div><div class="l">Division Configurable</div></div>
+      <div class="hb"><div class="v">100%</div><div class="l">Local · Privacy First</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== TOOLS ===== -->
+<main>
+  <div class="container">
+
+    <div class="section-label">The Suite</div>
+    <h2 class="section-h">Two tools. One workflow.</h2>
+    <p class="section-desc">Start with the diagnostic to assess your program's compliance posture. Move to the audit tool to operate against it with live data. Both are interactive, self-contained, and run entirely in your browser.</p>
+
+    <div class="tools">
+
+      <a class="tool-card" href="NAIA_Track_Compliance_Readiness_Assessment.html">
+        <span class="badge diagnostic">01 · Diagnostic</span>
+        <h3>NAIA Track &amp; Field Eligibility &amp; Compliance Readiness Assessment</h3>
+        <p>A 25-item diagnostic scoring your program across six weighted domains — eligibility certification, PTD monitoring, transcripts, recruiting, rules education, and audit readiness. Outputs a composite readiness percentage, risk tier, and prioritized 30-day and 31–90-day action plan.</p>
+        <div class="tool-meta">
+          <span>~12 min</span>
+          <span>6 domains</span>
+          <span>25 items</span>
+          <span>Tiered output</span>
+        </div>
+        <span class="tool-cta">Launch diagnostic <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tool-card" href="Track_Operations_Financial_Compliance_Audit_Tool.html">
+        <span class="badge operations">02 · Operations</span>
+        <h3>Track &amp; Field Operations Financial &amp; Compliance Audit Tool</h3>
+        <p>An interactive workspace for tracking budgets, travel/meet expenditures, recruiting spend, equipment lifecycle costs, and compliance checkpoints. Live KPIs and a charted dashboard recalculate as you edit. Generates a printable audit report for the AD, Head Coach, Business Office, and Compliance Office.</p>
+        <div class="tool-meta">
+          <span>7 tracker tabs</span>
+          <span>15+ live KPIs</span>
+          <span>Charted dashboard</span>
+          <span>Printable report</span>
+        </div>
+        <span class="tool-cta">Launch audit tool <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+
+    <!-- ===== FRAMEWORK ===== -->
+    <div class="framework">
+      <div class="heading">
+        <div class="section-label">The Framework</div>
+        <h3>Diagnostic → Engagement → Operation</h3>
+      </div>
+      <div class="framework-grid">
+        <div class="fw-item">
+          <div class="num">01</div>
+          <h4>Diagnose</h4>
+          <p>Use the Readiness Assessment to surface the weakest compliance domains. The diagnostic produces a defensible baseline.</p>
+        </div>
+        <div class="fw-item">
+          <div class="num">02</div>
+          <h4>Engage</h4>
+          <p>The tier output names a fit-for-purpose EPACC engagement — Foundation, Pilot, Hardening, or Continuous Monitoring.</p>
+        </div>
+        <div class="fw-item">
+          <div class="num">03</div>
+          <h4>Operate</h4>
+          <p>Run the Operations Audit Tool monthly to keep budget variance under control, compliance documentation at 100%, and the AD's distribution list informed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <div class="section-label">About the Suite</div>
+    <h2 class="section-h">Built on dissertation research.</h2>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>The EPACC difference</h3>
+        <p>EPACC is the only athletic compliance consulting firm built on empirical doctoral research connecting governance systems to academic performance metrics. Our work integrates the Burke-Litwin Organizational Change Model, the ADKAR behavioral change framework, and Compliance Theory to help athletic departments navigate complex compliance landscapes while protecting academic performance outcomes.</p>
+        <p>This suite reflects that approach. It is not a marketing checklist. It is the same diagnostic and operational logic used in institutional engagements, packaged for self-service use by athletic departments at the program level.</p>
+        <p style="margin-top:18px"><strong>Coverage:</strong> NCAA Division I, II, III; NAIA; NJCAA. Tooling adapts compliance references and benchmarks based on division selection.</p>
+      </div>
+      <div class="contact-card">
+        <h4>Engage EPACC</h4>
+        <div class="name">EPACC Consulting</div>
+        <div class="role">NCAA &amp; NAIA Compliance · NIL Governance · Transfer Portal Intelligence</div>
+        <a href="mailto:contact@epacc.example?subject=EPACC%20Track%20Suite%20Inquiry">contact@epacc.example</a>
+        <a href="#">epacc.example</a>
+        <p style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5">Request a discovery call to scope a Foundation, Pilot, or Hardening engagement for your Track &amp; Field program.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="ft-brand">EPACC · E-PERFORMANCE COMPLIANCE &amp; CONSULTING GROUP</div>
+    <p>Research-Backed NCAA &amp; NAIA Compliance Intelligence</p>
+    <p>This suite provides directional insight; it does not constitute a formal eligibility determination, financial audit, or legal advice.</p>
+    <p style="margin-top:14px;opacity:0.6">© <span id="yr"></span> EPACC. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
